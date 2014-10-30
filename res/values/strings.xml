@@ -22,5 +22,6 @@
     <string name="TextEventos">Eventos</string>
     <string name="txt_follow_songs">Lo que sigue</string>
     <string name="title_activity_opinion">Danos tu opinión</string>
+    <string name="title_activity_tab">TabActivity</string>
 
 </resources>

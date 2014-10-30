@@ -1,14 +1,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/LinearLayout1"
+    android:id="@+id/MusicLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="co.edu.udea.compumovil.gr10.discoapp.MusicActivity" >
+    android:orientation="vertical" >
 
     <TextView
         android:id="@+id/loquesuena"
@@ -71,10 +66,10 @@
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <ListView
-        android:id="@+id/listView1"
+        android:id="@+id/songListView"
         android:layout_width="match_parent"
         android:layout_height="59dp"
-        android:layout_weight="0.05" >
+        android:layout_weight="0.34" >
     </ListView>
 
 </LinearLayout>

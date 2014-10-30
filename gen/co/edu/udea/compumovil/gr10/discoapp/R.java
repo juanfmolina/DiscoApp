@@ -31,17 +31,18 @@ public final class R {
     }
     public static final class id {
         public static final int EstrellasServicio=0x7f09000d;
-        public static final int LinearLayout1=0x7f090000;
-        public static final int LinearLayout2=0x7f090009;
-        public static final int action_settings=0x7f090010;
+        public static final int LinearLayout1=0x7f090010;
+        public static final int MusicLayout=0x7f090000;
+        public static final int OpinionLayout=0x7f090009;
+        public static final int action_settings=0x7f090011;
         public static final int button1=0x7f090006;
         public static final int current_song=0x7f090003;
         public static final int editText1=0x7f09000f;
         public static final int estrellasMusica=0x7f09000b;
-        public static final int listView1=0x7f090008;
         public static final int loquesuena=0x7f090001;
         public static final int music_imagen=0x7f090002;
         public static final int request_song=0x7f090005;
+        public static final int songListView=0x7f090008;
         public static final int textView1=0x7f09000a;
         public static final int textView2=0x7f09000c;
         public static final int textView3=0x7f09000e;
@@ -51,10 +52,12 @@ public final class R {
     public static final class layout {
         public static final int activity_music=0x7f030000;
         public static final int activity_opinion=0x7f030001;
+        public static final int activity_tab=0x7f030002;
     }
     public static final class menu {
         public static final int music=0x7f080000;
         public static final int opinion=0x7f080001;
+        public static final int tab=0x7f080002;
     }
     public static final class string {
         public static final int TextCalificaMusica=0x7f050009;
@@ -71,6 +74,7 @@ public final class R {
         public static final int textOpinion=0x7f05000a;
         public static final int title_activity_events=0x7f05000e;
         public static final int title_activity_opinion=0x7f050011;
+        public static final int title_activity_tab=0x7f050012;
         public static final int txt_button_send_song=0x7f050007;
         public static final int txt_follow_songs=0x7f050010;
         public static final int txt_quieres=0x7f050006;
