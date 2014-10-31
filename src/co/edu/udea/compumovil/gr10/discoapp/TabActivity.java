@@ -17,17 +17,24 @@ public class TabActivity extends ActivityGroup {
 		setContentView(R.layout.activity_tab);
 		myTabHost = (TabHost) findViewById(android.R.id.tabhost);
 		myTabHost.setup(this.getLocalActivityManager());
+		//Agregando la primera pestaña
 		TabHost.TabSpec tabSpecMusic = myTabHost.newTabSpec("Music");
 		tabSpecMusic.setIndicator("Canciones");
 		Intent cancionesIntent= new Intent(this, MusicActivity.class);
 		tabSpecMusic.setContent(cancionesIntent);
-		
+		//Agregando la segunda pestaña
 		TabHost.TabSpec tabSpecOpinion = myTabHost.newTabSpec("Opinion");
 		Intent opinionIntent = new Intent(this, OpinionActivity.class);
 		tabSpecOpinion.setContent(opinionIntent);
 		tabSpecOpinion.setIndicator("Opinión");
+		//Agregando la tercera pestaña
+		TabHost.TabSpec tabSpecEventos = myTabHost.newTabSpec("Eventos");
+		Intent eventIntent = new Intent(this, EventActivity.class);
+		tabSpecEventos.setContent(eventIntent);
+		tabSpecEventos.setIndicator("Eventos");
 		myTabHost.addTab(tabSpecMusic);
 		myTabHost.addTab(tabSpecOpinion);
+		myTabHost.addTab(tabSpecEventos);
 		myTabHost.setCurrentTab(0);
 	}
 

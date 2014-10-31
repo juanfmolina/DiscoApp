@@ -23,5 +23,8 @@
     <string name="txt_follow_songs">Lo que sigue</string>
     <string name="title_activity_opinion">Danos tu opinión</string>
     <string name="title_activity_tab">TabActivity</string>
+    <string name="title_activity_event">EventActivity</string>
+    <string name="contenDescriptionImage">Imagen del evento</string>
+    <string name="stringEventos">Nuestros Eventos</string>
 
 </resources>
