@@ -3,13 +3,17 @@ package co.edu.udea.compumovil.gr10.discoapp;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.http.Header;
 
-
-
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
@@ -21,20 +25,21 @@ public class EventActivity extends Activity {
 	private List<Evento> listaEventos;
 	
 	
-	
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_event);	
+		setContentView(R.layout.activity_event);
 		init();
-		CustomAdapter customAdapter = new CustomAdapter(getApplicationContext(), listaEventos);
+		new EventoTask().execute();
+		CustomAdapter customAdapter = new CustomAdapter(
+				getApplicationContext(), listaEventos);
 		lvLista = (ListView) findViewById(R.id.listEvents);
 		lvLista.setAdapter(customAdapter);
 	}
-	
-	private void init(){
-		
+
+	private void init() {
+
 		listaEventos = new ArrayList<Evento>();
 		Evento evento = new Evento();
 		evento.setTitulo("Concierto Yelsid");
@@ -43,7 +48,7 @@ public class EventActivity extends Activity {
 		evento.setImagen(BitmapFactory.decodeResource(getResources(),
 				R.drawable.evento1));
 		listaEventos.add(evento);
-		
+
 		evento = new Evento();
 		evento.setTitulo("Fiesta de Halloween");
 		evento.setFecha("31 de octubre");
@@ -51,7 +56,7 @@ public class EventActivity extends Activity {
 		evento.setImagen(BitmapFactory.decodeResource(getResources(),
 				R.drawable.evento2));
 		listaEventos.add(evento);
-		
+
 		evento = new Evento();
 		evento.setTitulo("Streapers");
 		evento.setFecha("8 de noviembre");
@@ -78,5 +83,50 @@ public class EventActivity extends Activity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+
+	private class EventoTask extends AsyncTask<Void, Void, Void> {
+		
+		
+		
+		private static final String TAG = "EventTask";
+		private String Content;
+		private String Error = null;
+		private ProgressDialog Dialog = new ProgressDialog(EventActivity.this);
+
+		String data = "";
+
+		@Override
+		protected void onPreExecute() {
+			// super.onPreExecute();
+			// Start Progress Dialog (Message)
+			Dialog.setMessage("Please wait..");
+			Dialog.show();
+		}
+
+		@Override
+		protected Void doInBackground(Void... params) {
+
+			try {
+				data = new EventoHttpCliente().getEventosData();
+				Log.v(TAG, "Info:" + data);
+			} catch (Exception ex) {
+				Error = ex.getMessage();
+			}
+			
+			return null;
+			
+		}
+		
+		@Override
+		protected void onPostExecute(Void result) {
+			// TODO Auto-generated method stub
+			super.onPostExecute(result);
+			if (Dialog.isShowing())
+				Dialog.dismiss();
+		}
+		
+		
+		
 	}
 }
