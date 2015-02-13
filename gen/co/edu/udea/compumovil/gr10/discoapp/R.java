@@ -34,30 +34,39 @@ public final class R {
         public static final int notas_musicales=0x7f020005;
     }
     public static final class id {
-        public static final int EstrellasServicio=0x7f090012;
+        public static final int EstrellasServicio=0x7f090013;
         public static final int LinearLayout1=0x7f090000;
-        public static final int MusicLayout=0x7f090008;
-        public static final int OpinionLayout=0x7f090010;
+        public static final int MusicLayout=0x7f090009;
+        public static final int OpinionLayout=0x7f090011;
+        public static final int Registrarbutton=0x7f090019;
         public static final int RelativeLayout1=0x7f090003;
-        public static final int action_settings=0x7f090018;
-        public static final int current_song=0x7f09000b;
-        public static final int estrellasMusica=0x7f090011;
-        public static final int imageView1=0x7f090017;
-        public static final int ingresarButton=0x7f090004;
+        public static final int action_settings=0x7f090021;
+        public static final int button1=0x7f090008;
+        public static final int confirmeContraseñaText=0x7f090018;
+        public static final int current_song=0x7f09000c;
+        public static final int emailUsuarioText=0x7f09001c;
+        public static final int estrellasMusica=0x7f090012;
+        public static final int imageView1=0x7f090020;
+        public static final int ingresarButton=0x7f090005;
+        public static final int ingreseContraseñaText=0x7f090016;
+        public static final int ingreseUsuarioText=0x7f090015;
         public static final int listEvents=0x7f090002;
-        public static final int loquesuena=0x7f090009;
-        public static final int music_imagen=0x7f09000a;
-        public static final int passwordText=0x7f090005;
-        public static final int request_song=0x7f09000d;
-        public static final int songListView=0x7f09000f;
+        public static final int loquesuena=0x7f09000a;
+        public static final int music_imagen=0x7f09000b;
+        public static final int nombreUsuarioText=0x7f09001a;
+        public static final int opinionText=0x7f090004;
+        public static final int request_song=0x7f09000e;
+        public static final int songListView=0x7f090010;
         public static final int textView1=0x7f090001;
         public static final int textView2=0x7f090006;
-        public static final int textView3=0x7f090013;
-        public static final int text_descripcion=0x7f090016;
-        public static final int text_fecha=0x7f090015;
-        public static final int text_titulo=0x7f090014;
-        public static final int txtLoqueSigue=0x7f09000e;
-        public static final int txtQueQuieres=0x7f09000c;
+        public static final int textView3=0x7f090014;
+        public static final int textView4=0x7f090017;
+        public static final int textView5=0x7f09001b;
+        public static final int text_descripcion=0x7f09001f;
+        public static final int text_fecha=0x7f09001e;
+        public static final int text_titulo=0x7f09001d;
+        public static final int txtLoqueSigue=0x7f09000f;
+        public static final int txtQueQuieres=0x7f09000d;
         public static final int userText=0x7f090007;
     }
     public static final class layout {
@@ -65,15 +74,17 @@ public final class R {
         public static final int activity_login=0x7f030001;
         public static final int activity_music=0x7f030002;
         public static final int activity_opinion=0x7f030003;
-        public static final int activity_tab=0x7f030004;
-        public static final int event_layout=0x7f030005;
+        public static final int activity_register=0x7f030004;
+        public static final int activity_tab=0x7f030005;
+        public static final int event_layout=0x7f030006;
     }
     public static final class menu {
         public static final int event=0x7f080000;
         public static final int login_activity=0x7f080001;
         public static final int music=0x7f080002;
         public static final int opinion=0x7f080003;
-        public static final int tab=0x7f080004;
+        public static final int register=0x7f080004;
+        public static final int tab=0x7f080005;
     }
     public static final class string {
         public static final int TextCalificaMusica=0x7f050009;
@@ -94,6 +105,7 @@ public final class R {
         public static final int title_activity_events=0x7f05000e;
         public static final int title_activity_login_atcivity=0x7f050016;
         public static final int title_activity_opinion=0x7f050011;
+        public static final int title_activity_register=0x7f050017;
         public static final int title_activity_tab=0x7f050012;
         public static final int txt_button_send_song=0x7f050007;
         public static final int txt_follow_songs=0x7f050010;

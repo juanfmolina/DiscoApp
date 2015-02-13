@@ -1,15 +1,30 @@
 package co.edu.udea.compumovil.gr10.discoapp;
 
+import java.io.UnsupportedEncodingException;
+
+import org.apache.http.Header;
+
+import co.edu.udea.compumovil.gr10.discoapp.webservicesclient.contract.WebServiceContract;
+import co.edu.udea.compumovil.gr10.discoapp.webservicesclient.contract.WebServiceContract.ContractRequest;
+
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class MusicActivity extends Activity {
-
+	private EditText cancion;
 	private ListView listView;
+	private String cancionExitosa;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -42,4 +57,38 @@ public class MusicActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+	public void solicitarCancion(View view){
+		cancion = (EditText)findViewById(R.id.request_song);
+		RequestParams requestParams = new RequestParams();
+		requestParams.add(ContractRequest.USER_ID, "juanf.molina");
+		requestParams.add(ContractRequest.USER_REQUEST, cancion.getText().toString());
+		AsyncHttpClient client = new AsyncHttpClient();
+		 client.get(WebServiceContract.ROOT_PATH+ContractRequest.REQUEST_SONG, requestParams, new AsyncHttpResponseHandler() {
+			
+			@Override
+			public void onSuccess(int arg0, Header[] arg1, byte[] bytes) {
+				// TODO Auto-generated method stub
+				String solicitud;
+				try {
+					solicitud = new String(bytes, "UTF-8");				
+						Toast toast=  Toast.makeText(getApplicationContext(), "Solicitud Exitosa", Toast.LENGTH_LONG);
+						toast.show();
+									
+				} catch (UnsupportedEncodingException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			}
+			
+			@Override
+			public void onFailure(int arg0, Header[] arg1, byte[] arg2, Throwable arg3) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		
+		
+	}
+	
 }
