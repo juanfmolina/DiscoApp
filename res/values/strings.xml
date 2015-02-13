@@ -26,5 +26,6 @@
     <string name="title_activity_event">EventActivity</string>
     <string name="contenDescriptionImage">Imagen del evento</string>
     <string name="stringEventos">Nuestros Eventos</string>
+    <string name="title_activity_login_atcivity">LoginAtcivity</string>
 
 </resources>

@@ -95,7 +95,7 @@ public class EventActivity extends Activity {
 		private ProgressDialog Dialog = new ProgressDialog(EventActivity.this);
 
 		String data = "";
-
+		
 		@Override
 		protected void onPreExecute() {
 			// super.onPreExecute();
