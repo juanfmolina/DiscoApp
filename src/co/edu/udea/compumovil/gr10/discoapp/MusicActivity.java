@@ -12,6 +12,7 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -25,6 +26,7 @@ public class MusicActivity extends Activity {
 	private EditText cancion;
 	private ListView listView;
 	private String cancionExitosa;
+	private ProgressDialog progress;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,7 @@ public class MusicActivity extends Activity {
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
 				android.R.layout.simple_list_item_1, songs);
 		listView.setAdapter(adapter);
+		progress = new ProgressDialog(this);
 	}
 
 	@Override
@@ -58,7 +61,18 @@ public class MusicActivity extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 	public void solicitarCancion(View view){
+		
+		if (!ConexiónInternet.verificaConexion(getApplicationContext())) {
+		    Toast.makeText(getBaseContext(),
+		            "No tienes acceso a internet, Comprueba tu conexión y vuelve a intentarlo.", Toast.LENGTH_LONG)
+		            .show();
+		    return;
+		}
+		
 		cancion = (EditText)findViewById(R.id.request_song);
+		progress.setMessage("Solicitando canción, profavor espere");
+		progress.setCancelable(false);
+		progress.show();
 		RequestParams requestParams = new RequestParams();
 		requestParams.add(ContractRequest.USER_ID, "juanf.molina");
 		requestParams.add(ContractRequest.USER_REQUEST, cancion.getText().toString());
@@ -70,7 +84,8 @@ public class MusicActivity extends Activity {
 				// TODO Auto-generated method stub
 				String solicitud;
 				try {
-					solicitud = new String(bytes, "UTF-8");				
+					solicitud = new String(bytes, "UTF-8");
+					progress.dismiss();
 						Toast toast=  Toast.makeText(getApplicationContext(), "Solicitud Exitosa", Toast.LENGTH_LONG);
 						toast.show();
 									

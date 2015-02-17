@@ -13,11 +13,13 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.RatingBar;
 import android.widget.Toast;
 
@@ -25,10 +27,12 @@ public class OpinionActivity extends Activity {
 	private EditText opinion;
 	private RatingBar opinionMusica;
 	private RatingBar opinionServicio;
+	private ProgressDialog progress;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_opinion);
+		progress = new ProgressDialog(this);
 	}
 
 	@Override
@@ -51,9 +55,20 @@ public class OpinionActivity extends Activity {
 	}
 	
 	public void darOpinion(View view){
+		
+		if (!ConexiónInternet.verificaConexion(getApplicationContext())) {
+		    Toast.makeText(getBaseContext(),
+		            "No tienes acceso a internet, Comprueba tu conexión y vuelve a intentarlo.", Toast.LENGTH_LONG)
+		            .show();
+		    return;
+		}
+		
 		opinion = (EditText)findViewById(R.id.opinionText);
 		opinionMusica = (RatingBar)findViewById(R.id.estrellasMusica);
 		opinionServicio = (RatingBar)findViewById(R.id.EstrellasServicio);
+		progress.setMessage("Enviando tu opinión, Porfavor espera");
+		progress.setCancelable(false);
+		progress.show();
 		RequestParams requestParams = new RequestParams();
 		requestParams.add(ContractScore.USER_SCORE_COMENT, opinion.getText().toString());
 		requestParams.put(ContractScore.USER_SCORE_MUSIC, (int)opinionMusica.getRating()*2);
@@ -67,6 +82,7 @@ public class OpinionActivity extends Activity {
 			public void onSuccess(int arg0, Header[] arg1, byte[] bytes) {
 				// TODO Auto-generated method stub
 				try {
+					progress.dismiss();
 					String calificacion = new String(bytes, "UTF-8");
 					Toast toast = Toast.makeText(getApplicationContext(), calificacion, Toast.LENGTH_LONG);
 					toast.show();

@@ -18,6 +18,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class EventActivity extends Activity {
 
@@ -36,6 +37,8 @@ public class EventActivity extends Activity {
 				getApplicationContext(), listaEventos);
 		lvLista = (ListView) findViewById(R.id.listEvents);
 		lvLista.setAdapter(customAdapter);
+		
+	
 	}
 
 	private void init() {
@@ -106,7 +109,14 @@ public class EventActivity extends Activity {
 
 		@Override
 		protected Void doInBackground(Void... params) {
-
+			
+			if (!ConexiónInternet.verificaConexion(getApplicationContext())) {
+			    Toast.makeText(getBaseContext(),
+			            "No tienes acceso a internet, Comprueba tu conexión y vuelve a intentarlo.", Toast.LENGTH_LONG)
+			            .show();
+			    
+			}
+			
 			try {
 				data = new EventoHttpCliente().getEventosData();
 				Log.v(TAG, "Info:" + data);
