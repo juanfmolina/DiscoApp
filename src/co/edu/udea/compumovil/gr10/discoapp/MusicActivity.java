@@ -13,6 +13,7 @@ import com.loopj.android.http.RequestParams;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -40,6 +41,12 @@ public class MusicActivity extends Activity {
 				android.R.layout.simple_list_item_1, songs);
 		listView.setAdapter(adapter);
 		progress = new ProgressDialog(this);
+		
+		SharedPreferences pref = getSharedPreferences("MyPref", 0);
+		
+		Toast.makeText(getBaseContext(),
+	            pref.getString("usuario", ""), Toast.LENGTH_LONG)
+	            .show();
 	}
 
 	@Override
