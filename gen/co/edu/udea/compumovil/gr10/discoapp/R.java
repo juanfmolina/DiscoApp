@@ -42,6 +42,7 @@ public final class R {
         public static final int Registrarbutton=0x7f09001c;
         public static final int RelativeLayout1=0x7f090003;
         public static final int action_settings=0x7f090021;
+        public static final int cerrarSesion=0x7f090022;
         public static final int confirmeContraseñaText=0x7f090018;
         public static final int current_song=0x7f09000c;
         public static final int emailUsuarioText=0x7f09001b;
@@ -81,10 +82,11 @@ public final class R {
     public static final class menu {
         public static final int event=0x7f080000;
         public static final int login_activity=0x7f080001;
-        public static final int music=0x7f080002;
-        public static final int opinion=0x7f080003;
-        public static final int register=0x7f080004;
-        public static final int tab=0x7f080005;
+        public static final int menuprincipal=0x7f080002;
+        public static final int music=0x7f080003;
+        public static final int opinion=0x7f080004;
+        public static final int register=0x7f080005;
+        public static final int tab=0x7f080006;
     }
     public static final class string {
         public static final int TextCalificaMusica=0x7f050009;
@@ -98,6 +100,7 @@ public final class R {
         public static final int descriptor_image=0x7f050004;
         public static final int editIngresaOpinion=0x7f05000b;
         public static final int hello_world=0x7f050001;
+        public static final int menu1=0x7f050018;
         public static final int stringEventos=0x7f050015;
         public static final int textCalifica=0x7f050008;
         public static final int textOpinion=0x7f05000a;

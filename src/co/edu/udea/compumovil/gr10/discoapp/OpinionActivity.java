@@ -14,6 +14,8 @@ import com.loopj.android.http.RequestParams;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -39,6 +41,7 @@ public class OpinionActivity extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.opinion, menu);
+		getMenuInflater().inflate(R.menu.menuprincipal, menu);
 		return true;
 	}
 
@@ -51,6 +54,21 @@ public class OpinionActivity extends Activity {
 		if (id == R.id.action_settings) {
 			return true;
 		}
+		
+		switch (item.getItemId()) {
+		case R.id.cerrarSesion:
+			SharedPreferences pref = getSharedPreferences("MyPref", 0);
+		    final SharedPreferences.Editor edit = pref.edit();
+		    edit.putString("usuario", "");
+		    edit.commit();
+		    Intent act = new Intent(getApplicationContext(), LoginActivity.class);
+		    startActivity(act);
+			break;
+
+		default:
+			break;
+		}
+		
 		return super.onOptionsItemSelected(item);
 	}
 	

@@ -28,5 +28,6 @@
     <string name="stringEventos">Nuestros Eventos</string>
     <string name="title_activity_login_atcivity">LoginAtcivity</string>
     <string name="title_activity_register">RegisterActivity</string>
+    <string name="menu1">cerrarSesion</string>
 
 </resources>

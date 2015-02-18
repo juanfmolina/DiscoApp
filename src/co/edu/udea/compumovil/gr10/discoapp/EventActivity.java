@@ -10,6 +10,8 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -73,6 +75,7 @@ public class EventActivity extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.event, menu);
+		getMenuInflater().inflate(R.menu.menuprincipal, menu);
 		return true;
 	}
 
@@ -85,6 +88,20 @@ public class EventActivity extends Activity {
 		if (id == R.id.action_settings) {
 			return true;
 		}
+		switch (item.getItemId()) {
+		case R.id.cerrarSesion:
+			SharedPreferences pref = getSharedPreferences("MyPref", 0);
+		    final SharedPreferences.Editor edit = pref.edit();
+		    edit.putString("usuario", "");
+		    edit.commit();
+		    Intent act = new Intent(getApplicationContext(), LoginActivity.class);
+		    startActivity(act);
+			break;
+
+		default:
+			break;
+		}
+		
 		return super.onOptionsItemSelected(item);
 	}
 

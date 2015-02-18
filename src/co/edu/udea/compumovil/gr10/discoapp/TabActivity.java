@@ -3,6 +3,7 @@ package co.edu.udea.compumovil.gr10.discoapp;
 import android.app.Activity;
 import android.app.ActivityGroup;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -37,14 +38,20 @@ public class TabActivity extends ActivityGroup {
 		myTabHost.addTab(tabSpecOpinion);
 		myTabHost.addTab(tabSpecEventos);
 		myTabHost.setCurrentTab(0);
+		
+		SharedPreferences pref = getSharedPreferences("MyPref", 0);
+		if (pref.getString("usuario", "").equals("")){	
+		Intent act = new Intent(getApplicationContext(),LoginActivity.class);
+		startActivity(act);
+		}
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.tab, menu);
-		//MenuInflater inflater = getMenuInflater();
-        //inflater.inflate(R.menu.menu, menu);
+		
+		
 		return true;
 	}
 
@@ -57,6 +64,17 @@ public class TabActivity extends ActivityGroup {
 		if (id == R.id.action_settings) {
 			return true;
 		}
+		/*
+		switch (item.getItemId()) {
+		case value:
+			
+			break;
+
+		default:
+			break;
+		}
+		*/
+		
 		return super.onOptionsItemSelected(item);
 	}
 }
