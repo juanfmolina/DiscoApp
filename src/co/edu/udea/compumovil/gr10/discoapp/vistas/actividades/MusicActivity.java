@@ -1,9 +1,14 @@
-package co.edu.udea.compumovil.gr10.discoapp;
+package co.edu.udea.compumovil.gr10.discoapp.vistas.actividades;
 
 import java.io.UnsupportedEncodingException;
 
 import org.apache.http.Header;
 
+import co.edu.udea.compumovil.gr10.discoapp.ConexionInternet;
+import co.edu.udea.compumovil.gr10.discoapp.R;
+import co.edu.udea.compumovil.gr10.discoapp.R.id;
+import co.edu.udea.compumovil.gr10.discoapp.R.layout;
+import co.edu.udea.compumovil.gr10.discoapp.R.menu;
 import co.edu.udea.compumovil.gr10.discoapp.webservicesclient.contract.WebServiceContract;
 import co.edu.udea.compumovil.gr10.discoapp.webservicesclient.contract.WebServiceContract.ContractRequest;
 
@@ -27,7 +32,6 @@ import android.widget.Toast;
 public class MusicActivity extends Activity {
 	private EditText cancion;
 	private ListView listView;
-	private String cancionExitosa;
 	private ProgressDialog progress;
 
 	@Override
@@ -87,7 +91,7 @@ public class MusicActivity extends Activity {
 	}
 	public void solicitarCancion(View view){
 		
-		if (!ConexiónInternet.verificaConexion(getApplicationContext())) {
+		if (!ConexionInternet.verificaConexion(getApplicationContext())) {
 		    Toast.makeText(getBaseContext(),
 		            "No tienes acceso a internet, Comprueba tu conexión y vuelve a intentarlo.", Toast.LENGTH_LONG)
 		            .show();
@@ -111,7 +115,7 @@ public class MusicActivity extends Activity {
 				try {
 					solicitud = new String(bytes, "UTF-8");
 					progress.dismiss();
-						Toast toast=  Toast.makeText(getApplicationContext(), "Solicitud Exitosa", Toast.LENGTH_LONG);
+						Toast toast=  Toast.makeText(getApplicationContext(), solicitud, Toast.LENGTH_LONG);
 						toast.show();
 									
 				} catch (UnsupportedEncodingException e) {

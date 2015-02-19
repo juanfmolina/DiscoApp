@@ -1,5 +1,9 @@
-package co.edu.udea.compumovil.gr10.discoapp;
+package co.edu.udea.compumovil.gr10.discoapp.vistas.actividades;
 
+import co.edu.udea.compumovil.gr10.discoapp.R;
+import co.edu.udea.compumovil.gr10.discoapp.R.id;
+import co.edu.udea.compumovil.gr10.discoapp.R.layout;
+import co.edu.udea.compumovil.gr10.discoapp.R.menu;
 import android.app.Activity;
 import android.app.ActivityGroup;
 import android.content.Intent;

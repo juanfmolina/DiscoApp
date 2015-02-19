@@ -28,6 +28,12 @@
     <string name="stringEventos">Nuestros Eventos</string>
     <string name="title_activity_login_atcivity">LoginAtcivity</string>
     <string name="title_activity_register">RegisterActivity</string>
-    <string name="menu1">cerrarSesion</string>
+    <string name="menu1">Cerrar Sesion</string>
+    <string name="ingresoUsuario">Ingrese su nuevo nombre de usuario</string>
+    <string name="ingresoContrasena">Ingrese su contraseña</string>
+    <string name="confirmarContrasena">Confirme su contraseña</string>
+    <string name="ingresoNombre">Ingrese su nombre</string>
+    <string name="ingresoCorreo">Ingrese su correo electrónico</string>
+    <string name="textRegistrar">Registrarse</string>
 
 </resources>

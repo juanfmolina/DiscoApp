@@ -1,9 +1,19 @@
-package co.edu.udea.compumovil.gr10.discoapp;
+package co.edu.udea.compumovil.gr10.discoapp.vistas.actividades;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.http.Header;
+
+import co.edu.udea.compumovil.gr10.discoapp.ConexionInternet;
+import co.edu.udea.compumovil.gr10.discoapp.CustomAdapter;
+import co.edu.udea.compumovil.gr10.discoapp.Evento;
+import co.edu.udea.compumovil.gr10.discoapp.EventoHttpCliente;
+import co.edu.udea.compumovil.gr10.discoapp.R;
+import co.edu.udea.compumovil.gr10.discoapp.R.drawable;
+import co.edu.udea.compumovil.gr10.discoapp.R.id;
+import co.edu.udea.compumovil.gr10.discoapp.R.layout;
+import co.edu.udea.compumovil.gr10.discoapp.R.menu;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -127,7 +137,7 @@ public class EventActivity extends Activity {
 		@Override
 		protected Void doInBackground(Void... params) {
 			
-			if (!ConexiónInternet.verificaConexion(getApplicationContext())) {
+			if (!ConexionInternet.verificaConexion(getApplicationContext())) {
 			    Toast.makeText(getBaseContext(),
 			            "No tienes acceso a internet, Comprueba tu conexión y vuelve a intentarlo.", Toast.LENGTH_LONG)
 			            .show();

@@ -1,9 +1,14 @@
-package co.edu.udea.compumovil.gr10.discoapp;
+package co.edu.udea.compumovil.gr10.discoapp.vistas.actividades;
 
 import java.io.UnsupportedEncodingException;
 
 import org.apache.http.Header;
 
+import co.edu.udea.compumovil.gr10.discoapp.ConexionInternet;
+import co.edu.udea.compumovil.gr10.discoapp.R;
+import co.edu.udea.compumovil.gr10.discoapp.R.id;
+import co.edu.udea.compumovil.gr10.discoapp.R.layout;
+import co.edu.udea.compumovil.gr10.discoapp.R.menu;
 import co.edu.udea.compumovil.gr10.discoapp.webservicesclient.contract.WebServiceContract;
 import co.edu.udea.compumovil.gr10.discoapp.webservicesclient.contract.WebServiceContract.ContractScore;
 import co.edu.udea.compumovil.gr10.discoapp.webservicesclient.contract.WebServiceContract.ContractUser;
@@ -74,7 +79,7 @@ public class OpinionActivity extends Activity {
 	
 	public void darOpinion(View view){
 		
-		if (!ConexiónInternet.verificaConexion(getApplicationContext())) {
+		if (!ConexionInternet.verificaConexion(getApplicationContext())) {
 		    Toast.makeText(getBaseContext(),
 		            "No tienes acceso a internet, Comprueba tu conexión y vuelve a intentarlo.", Toast.LENGTH_LONG)
 		            .show();
